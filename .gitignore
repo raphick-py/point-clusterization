@@ -1,0 +1,12 @@
+bin/
+project/
+include/
+lib/
+local/
+share/
+__init__.py
+pip*
+mod.pyc
+drawing.pyc
+output.txt
+
