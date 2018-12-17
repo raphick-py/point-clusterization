@@ -38,7 +38,7 @@ if __name__ == "__main__":
     k = -1
     b = 100
     graph1 = plt.plot(xrang, k*xrang + b, 'k', color='blue')
-    plt.show()
+    plt.savefig('heat1.png')
     scatter1 = plt.scatter(stations['1']['x_cords'],
                            stations['1']['y_cords'])
     scatter2 = plt.scatter(stations['2']['x_cords'],
