@@ -94,12 +94,12 @@ def stationsd():
                                     name='appolo_2000'
                                     )
                     }
-        stations.update({'2': input_stat(x_cordinates=3,
-                                         y_cordinates=4,
+        stations.update({'2': input_stat(x_cordinates=9,
+                                         y_cordinates=2,
                                          typeof='radio',
                                          name='luna_1')})
-        stations.update({'3': input_stat(x_cordinates=2,
-                                         y_cordinates=6,
+        stations.update({'3': input_stat(x_cordinates=8,
+                                         y_cordinates=4,
                                          typeof='radio',
                                          name='vladivostok'
                                          )
