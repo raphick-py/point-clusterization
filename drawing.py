@@ -5,6 +5,7 @@ import mod
 import seaborn as sns
 import pandas as pd
 from math import sqrt
+from scipy.signal import find_peaks
 
 
 def create_matrix(stations):
@@ -25,12 +26,13 @@ def create_matrix(stations):
                         y = y1
                         x = x1
                         matrix[-y][x] += 1
-    threshold = matrix.max() / sqrt(3)
-    for i in range(100):
-        for j in range(100):
-            if matrix[i][j] < threshold:
-                matrix[i][j] = 0
     return matrix
+
+
+def find_local_max(matrix):
+    threshold = matrix.max() / sqrt(3)
+    local_max = find_peaks(matrix.ravel(), height=threshold)
+    return local_max
 
 
 if __name__ == "__main__":
