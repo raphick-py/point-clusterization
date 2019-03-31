@@ -86,7 +86,7 @@ def input_stat(x_cordinates, y_cordinates, typeof, name):
 
 
 def stationsd():
-    check = raw_input("Standart data? Y/n:")
+    check = input("Standart data? Y/n:")
     if check in 'Y yes y Yes ':
         stations = {'1': input_stat(x_cordinates=2,
                                     y_cordinates=9,
@@ -108,10 +108,10 @@ def stationsd():
     else:
         for i in range(1, 4):
             print("Enter data for station %i" % i)
-            x = float(raw_input("x_cordinates:"))
-            y = float(raw_input("y_cordinates:"))
-            t = str(raw_input("type of station:"))
-            n = str(raw_input("name of station:"))
+            x = float(input("x_cordinates:"))
+            y = float(input("y_cordinates:"))
+            t = str(input("type of station:"))
+            n = str(input("name of station:"))
             stations = {"$i" % i: input_stat(x, y, t, n)}
     return stations
 
