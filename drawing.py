@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/python
 import matplotlib.pyplot as plt
 import numpy as np
 import mod
@@ -8,7 +8,7 @@ from math import sqrt
 from scipy.signal import find_peaks
 
 
-#creates matrix of pilings from coordinates of station
+# creates matrix of pilings from coordinates of station
 def create_matrix(stations):
     dot_dict = mod.for_draw(stations)
     X = mod.creation_sys_cords(0.01)
@@ -30,8 +30,8 @@ def create_matrix(stations):
     return matrix
 
 
-#search local maximum in matrix of pilings return string[a, {dict}]
-#a-number, a = row*10+string, in dict-value
+# search local maximum in matrix of pilings return string[a, {dict}]
+# a-number, a = row*10+string, in dict-value
 def find_local_max(matrix):
     threshold = matrix.max() / sqrt(5)
     local_max = find_peaks(np.ravel(matrix), height=threshold)

@@ -1,7 +1,6 @@
 #!/usr/bin/python
 import matplotlib.pyplot as plt
 from matplotlib import style
-style.use('fivethirtyeight')
 import numpy as np
 from scipy.stats import multivariate_normal
 from drawing import create_matrix
@@ -10,6 +9,8 @@ from mod import creation_sys_cords
 from sklearn.mixture import GaussianMixture
 from drawing import find_local_max
 from drawing import transform_to_matrix
+
+style.use('fivethirtyeight')
 
 # 0. Create dataset
 stations = stationsd()
