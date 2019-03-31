@@ -33,7 +33,7 @@ def create_matrix(stations):
 #search local maximum in matrix of pilings return string[a, {dict}]
 #a-number, a = row*10+string, in dict-value
 def find_local_max(matrix):
-    threshold = matrix.max() / sqrt(3)
+    threshold = matrix.max() / sqrt(5)
     local_max = find_peaks(np.ravel(matrix), height=threshold)
     return local_max
 
