@@ -4,6 +4,9 @@ import math
 import sys
 import numpy as np
 import random
+
+# First module generate data (coords, speed other)
+# Then it will  lead to drawing.py module where it will be visualisate
 #class Station(object):
 #
 #    def __init__(self, **kwargs):

@@ -7,6 +7,7 @@ import pandas as pd
 from math import sqrt
 from scipy.signal import find_peaks
 
+# Module which create heatmap of airplane, without clusters algorithm
 
 # creates matrix of pilings from coordinates of station
 def create_matrix(stations):

@@ -12,6 +12,7 @@ from drawing import transform_to_matrix
 
 style.use('fivethirtyeight')
 
+# This module use em algorithm for data from mod and drawing
 # 0. Create dataset
 stations = stationsd()
 X = creation_sys_cords(0.1)
