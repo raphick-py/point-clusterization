@@ -51,8 +51,8 @@ if __name__ == "__main__":
 # Plot
     fig = plt.figure(figsize=(10,10))
     ax0 = fig.add_subplot(111)
-    ax0.scatter(X[:,0],X[:,1])
-    ax0.scatter(Y[0,:],Y[1,:],c='orange',zorder=10,s=100)
+    ax0.scatter(X[:,0],X[:,1], c=prediction)
+    #ax0.scatter(Y[0,:],Y[1,:],c='orange',zorder=10,s=100)
     for m,c in zip(means,covariances):
         multi_normal = multivariate_normal(mean=m,cov=c)
         ax0.contour(np.sort(X[:,0]),np.sort(X[:,1]),multi_normal.pdf(XY).reshape(len(X),len(X)),colors='black',alpha=0.3)
