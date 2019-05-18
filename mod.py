@@ -101,8 +101,8 @@ def stationsd():
                                          y_cordinates=2,
                                          typeof='radio',
                                          name='luna_1')})
-        stations.update({'3': input_stat(x_cordinates=8,
-                                         y_cordinates=4,
+        stations.update({'3': input_stat(x_cordinates=3,
+                                         y_cordinates=1,
                                          typeof='radio',
                                          name='vladivostok'
                                          )
