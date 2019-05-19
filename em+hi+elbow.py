@@ -14,6 +14,8 @@ from sklearn import metrics
 from scipy.spatial.distance import cdist
 from scipy.cluster.hierarchy import dendrogram, linkage
 from scipy.cluster.hierarchy import fcluster
+import seaborn as sns
+import pandas as pd
 
 
 style.use('fivethirtyeight')
@@ -23,8 +25,10 @@ def create_dataset():
     stations = stationsd()
     X = creation_sys_cords(0.1)
     matrix = create_matrix(stations)
+    initmatrix = matrix  # for drawing matrix to draw heatmap
     m = find_local_max(matrix)
     matrix = transform_to_matrix(m)
+    modifmatrix = matrix  # matrix after threshold
     m = np.rot90(matrix, k=1, axes=(1, 0))
     m = find_local_max(m)
     matrix = transform_to_matrix(m)
@@ -38,7 +42,7 @@ def create_dataset():
             for m in range(int(matrix[i][k])):
                 X[s] = i, k
                 s += 1
-    return X, Y
+    return X, Y, initmatrix, modifmatrix
 
 
 def em(X, Y, k):
@@ -68,13 +72,11 @@ def em(X, Y, k):
 
 def kmean(X, k):
     Z = linkage(X, 'ward')
-    colors = ['b', 'g', 'r', 'y']
-    markers = ['o', 'v', 's', 'm']
     clusters = fcluster(Z, k, criterion='maxclust')
     if int(k) == 4:
         for i in range(len(clusters)):
             if clusters[i] == 2:
-                clusters[i] +=5
+                clusters[i] += 5
     print(clusters)
     plt.figure(figsize=(10, 8))
     plt.scatter(X[:, 0], X[:, 1], c=clusters, cmap='prism')  # plot points with cluster dependent colors
@@ -112,9 +114,27 @@ def dendrogramma(X):
     plt.show()
 
 
-X, Y = create_dataset()
+def heatmap(inmatrix, modmatrix):
+    x = plt.subplots()
+    X = creation_sys_cords(0.1)
+    matrixd = pd.DataFrame(inmatrix, index=(X[::-1]), columns=X)
+    ax = sns.heatmap(matrixd)
+    xrang = np.arange(0, 100, 0.1)
+    k = -1
+    b = 100
+    graph1 = plt.plot(xrang, k*xrang + b, 'k', color='blue')
+    plt.savefig('result/heat1.png')
+    print('a')
+    ax = plt.subplots()
+    matrix1 = pd.DataFrame(modmatrix, index=(X[::-1]), columns=X)
+    ax = sns.heatmap(matrix1)
+    plt.savefig('result/heat2.png')
+
+
+X, Y, initmat, modifmatr = create_dataset()
 elbow(X)
 dendrogramma(X)
 k = input()
 kmean(X, k)
 em(X, Y, k)
+heatmap(initmat, modifmatr)
