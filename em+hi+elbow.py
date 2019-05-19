@@ -94,8 +94,8 @@ def elbow(X):
 # Plot the elbow
     plt.plot(K, distortions, 'bx-')
     plt.xlabel('k')
-    plt.ylabel('Distortion')
-    plt.title('The Elbow Method showing the optimal k')
+    plt.ylabel('Искажение')
+    plt.title('The Elbow Method показывает оптимельное k')
     plt.savefig('result/elbow.png')
     plt.show()
 
