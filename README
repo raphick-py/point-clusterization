@@ -1,4 +1,4 @@
-﻿My NIRS project for university
+My NIRS project for university
 Recomended to run in python vitrualenv
 There are packages that need to be downloaded, they are shown in "requirements.txt"
 Enjoy yourself
@@ -8,47 +8,7 @@ HOW TO
 There are 3 files
 mod.py drawing.py testem.py
 
-Run drawing.py, it would paint a heat map of all pilings with noise
+run drawing.py, it would paint a heat map of all pilings with noise
 if you run testem.py, it would apply em algorithm for data from mod.py and draw a map of it
-
-Run em+hi+elbow.py to get results of work of all algorythms
-
-EXAMPLES
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 Have a probblem? contact me leafar568@gmail.com
