@@ -75,17 +75,15 @@ def em(X, Y, k):
 
 
 def kmean(X, k):
-    Z = linkage(X, 'ward')
-    clusters = fcluster(Z, k, criterion='maxclust')
-    if int(k) == 4:
-        for i in range(len(clusters)):
-            if clusters[i] == 2:
-                clusters[i] += 5
-    print(clusters)
+    DATA = {'x': X[:, 0],
+            'y': X[:, 1]}
+    df = pd.DataFrame(DATA,columns=['x','y'])
+    kmeans = KMeans(n_clusters=int(k)).fit(df)
+    centroids = kmeans.cluster_centers_
     plt.figure(figsize=(10, 8))
-    plt.scatter(X[:, 0], X[:, 1], c=clusters, cmap='prism')  # plot points with cluster dependent colors
+    plt.scatter(df['x'], df['y'], c=kmeans.labels_.astype(float), cmap='prism')  # plot points with cluster dependent colors
+    plt.scatter(centroids[:, 0], centroids[:, 1], c='black', s=150, marker="P")
     plt.savefig('result/kmean.png')
-
 
 def elbow(X):
     distortions = []
