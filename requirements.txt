@@ -5,7 +5,7 @@ GMM==0.3.3
 kiwisolver==1.0.1
 matplotlib==2.2.3
 networkx==2.2
-numpy==1.15.2
+numpy==1.22.0
 pandas==0.23.4
 pyparsing==2.2.2
 python-dateutil==2.7.3
